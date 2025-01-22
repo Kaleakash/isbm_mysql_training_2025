@@ -1,0 +1,105 @@
+Create a Database:
+
+Create a database named LibraryDB.
+
+Create Tables:
+
+Create the following tables with appropriate data types and constraints:
+Authors: author_id (Primary Key, Auto Increment), name, country.
+
+Books: book_id (Primary Key, Auto Increment), title, author, published_year, genre.
+
+while inserting insert genre as null. 
+
+Members: member_id (Primary Key, Auto Increment), name, email (Unique), phone, join_date.
+
+Insert meaningful 8 to 10 records in each table ie Authors, Books, Members 
+
+Update the genre for few books Classic Fiction, Science Fiction, Horror etc 
+
+Delete Records:
+
+Remove a member who is no longer active.
+
+Basic Query:
+
+List all books with their details.
+
+Filter Data:
+
+Find books published after the year 1950.
+
+Aggregate Functions:
+
+Count the total number of books.
+
+Simple Query with Condition:
+
+Find all authors from the United Kingdom.
+
+Group and Count:
+
+Count books by genre.
+
+Modify the Members Table:
+
+Write a query to add a new column membership_type to the Members table
+
+Drop a Column:
+
+Write a query to remove the phone column from the Members table.
+
+Insert Data into Authors:
+
+Insert the following authors into the Authors table:
+J.K. Rowling, United Kingdom.
+George Orwell, United Kingdom.
+Mark Twain, United States.
+
+
+Insert Data into Members:
+
+Add a new member with the following details:
+name: Jane Doe
+email: jane.doe@example.com
+phone: 1234567890
+
+Update Author Country:
+
+Update the country for George Orwell to USA.
+
+Delete a Member:
+
+Delete the member whose email is bob@example.com.
+
+Retrieve All Authors:
+
+Write a query to fetch all details of authors.
+
+Find Authors by Country:
+
+List all authors from the United Kingdom.
+
+Count Members:
+
+Write a query to find the total number of members in the Members table.
+
+Filter Members by Join Date:
+
+Retrieve the names and emails of members who joined after 2024-01-01.
+
+
+Group Members by Membership Type:
+
+Find the number of members in each membership_type
+
+
+Bonus Challenges
+Custom Query on Authors:
+
+Write a query to find authors whose names start with the letter J.
+
+Custom Query on Members:
+
+Retrieve all members whose phone number contains 123.
+
