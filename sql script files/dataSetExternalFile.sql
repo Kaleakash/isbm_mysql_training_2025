@@ -43,3 +43,15 @@ group by DateInfo,Description order by DateInfo desc;
 # total deposits first group date then channel  apart from ATM transaction 
 select Dateinfo,Description, sum(Deposits) TotalDeposite from banktransaction 
 where Description != 'ATM' group by DateInfo,Description order by DateInfo desc;
+
+
+# college dataset 
+select * from college where institutionName='BMS';
+select * from college where institutionName ="";
+select count(*) from college;
+select count(*) from college where InstitutionName ="";
+select institutionName,count(*) from college where InstitutionName !="" 
+group by institutionName having count(*)>=2;
+
+
+
