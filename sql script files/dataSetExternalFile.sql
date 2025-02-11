@@ -25,4 +25,21 @@ select ItemType, count(*) totalNumber from salesreport group by ItemType having 
 select ItemType, count(*) totalNumber from salesreport group by ItemType 
 having count(*) >75 order by ItemType asc;
 
+# working with banking traction details. 
+select * from banktransaction;
+# total deposits 
+select sum(Deposits) TotalDeposite from banktransaction;
+# total deposits date wise 
+select DateInfo, sum(Deposits) TotalDeposite from banktransaction group by DateInfo;
+# total deposits media or channel 
+select Description, sum(Deposits) TotalDeposite from banktransaction group by Description;
+# total deposits media or channel as  main group sub group dateinfo 
+select Description,Dateinfo, sum(Deposits) TotalDeposite from banktransaction 
+group by Description,DateInfo order by Description;
+# total deposits first group date then channel  
+select Dateinfo,Description, sum(Deposits) TotalDeposite from banktransaction 
+group by DateInfo,Description order by DateInfo desc;
 
+# total deposits first group date then channel  apart from ATM transaction 
+select Dateinfo,Description, sum(Deposits) TotalDeposite from banktransaction 
+where Description != 'ATM' group by DateInfo,Description order by DateInfo desc;
