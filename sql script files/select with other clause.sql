@@ -15,6 +15,7 @@ select count(*) from customers group by Company having count(*) >=2;
 select count(*) from customers group by Country having count(*) >=5;
 select country,srno,customer_id,first_name from customers order by country;
 select country,srno,customer_id,first_name from customers order by country asc, srno asc;
-
+select country,srno,customer_id,first_name from customers order by country;
+select country,srno,customer_id,first_name from customers order by country asc, first_name asc;
 
  
