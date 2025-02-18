@@ -21,6 +21,7 @@ insert into employees values(3,'Ajay',45000,102);
 insert into employees values(4,'Vijay',43000,101);
 insert into employees values(5,'Lokesh',35000,101);
 insert into employees values(6,'Mahesh',52000,102);
+insert into employees values(7,'Vikash',52000,100);
 select * from employees;
 
 #Find Employee name whose salary is grether than the average salary of 
@@ -89,3 +90,73 @@ select emp_name from employees where salary >
 select emp_name from employees where salary > all
 (select salary from employees where dept_id=
 (select dept_id from departments where dept_name='IT'));
+
+
+#
+
+select * from employees;
+
+# find the person details whose salary is greater than average in
+# particular department. 
+select e1.emp_id,e1.emp_name,e1.salary 
+from employees e1 where e1.salary > 
+(select avg(e2.salary) from employees e2 
+where e1.dept_id=e2.dept_id);
+
+
+select dept_id, avg(e2.salary) from employees e2 group by dept_id;
+
+
+select * from employees;
+
+select max(salary) from employees;		# 1st largest salary 
+select min(salary) from employees;		# 1st smallest salary
+ 
+select max(salary) from employees where salary 
+< (select max(salary) from employees);    # 2nd largest salary 
+
+select min(salary) from employees where salary 
+> (select min(salary) from employees);    # 2nd smallest salary 
+
+# first the person name getting max salary and min salary 
+select emp_name from employees where salary=(select max(salary) from employees);		# 1st largest salary 
+select emp_name from employees where salary=(select min(salary) from employees);		# 1st smallest salary
+
+# first the person name getting 2nd min and max salary
+select emp_name,salary from employees where salary=(select min(salary) from employees where salary 
+> (select min(salary) from employees));    # 2nd smallest salary
+select emp_name,salary from employees where salary=
+(select max(salary) from employees where salary 
+< (select max(salary) from employees));    # 2nd largest salary 
+ 
+#find the nth largest or smallest salary using co-related sub query 
+# 1st max salary
+select max(e1.salary) from employees e1 where (
+select count(distinct e2.salary) from employees e2 
+where e2.salary > e1.salary)=0; 
+
+# 2nd max salary 
+select max(e1.salary) from employees e1 where (
+select count(distinct e2.salary) from employees e2 
+where e2.salary > e1.salary)=1;
+# 3rd max salary
+select max(e1.salary) from employees e1 where (
+select count(distinct e2.salary) from employees e2 where e2.salary > e1.salary)=2;
+
+# 4th max salary
+select max(e1.salary) from employees e1 where (
+select count(distinct e2.salary) from employees e2 where e2.salary > e1.salary)=3;
+
+select * from employees;
+
+# creating new table which hold ie,name,max_salary in department wise 
+create table max_salary_employee(
+eid int primary key,
+ename varchar(30),
+max_salary float
+);
+
+select e1.emp_id,e1.emp_name,e1.salary 
+from employees e1 where e1.salary > 
+(select avg(e2.salary) from employees e2 
+where e1.dept_id=e2.dept_id);
